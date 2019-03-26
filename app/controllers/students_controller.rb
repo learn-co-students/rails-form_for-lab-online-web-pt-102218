@@ -14,8 +14,8 @@ class StudentsController < ApplicationController
 
   def create
     #rails server to check if it creates a new student. need to strong params it?
-    @student = Student.find_by(params[:id])
-    
+    @student = Student.create(params.require())
+
   end
 
   def edit
