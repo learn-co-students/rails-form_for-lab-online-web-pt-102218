@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'byebug'
   gem 'spring'
+  gem 'pry'
   gem 'rspec-rails'
   gem 'factory_bot_rails', '~>4.8.2'
   gem 'capybara'
