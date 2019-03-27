@@ -5,7 +5,7 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student = Student.find_by(params.require(:student).permit(:id))
+    @student = Student.find_by(params[:id]
   end
 
   def new
@@ -14,8 +14,7 @@ class StudentsController < ApplicationController
 
   def create
     #rails server to check if it creates a new student. need to strong params it?
-    binding.pry
-    @student = Student.create(params.require(:student).permit(:first_name, :last_name))
+    @student = Student.create(student_params(:first_name, :last_name))
     redirect_to student_path(@student)
   end
 
@@ -25,4 +24,10 @@ class StudentsController < ApplicationController
   def update
   end
 
+  private 
+
+  def student_params(*args)
+    params.require(:student).permit(*args)
+  end
+  
 end
